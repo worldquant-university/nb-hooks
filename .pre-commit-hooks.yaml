@@ -1,0 +1,5 @@
+- id: remove-blank-last
+  name: Remove last cell in blank
+  entry: remove-blank-last
+  language: python
+  files: \.ipynb$
