@@ -30,7 +30,7 @@ def clean_sql_cells(filename: str) -> int:
         if (cell["cell_type"] == "code") and ("%%sql" in cell["source"]):
             clean_code = clean_sql_string(cell["source"])
             if cell["source"] != clean_code:
-                cell["source"] = clean_sql_string(cell["source"])
+                cell["source"] = clean_sql_string(cell["source"]).replace('\n\n', "\n")
                 fail_flag = 1
     if fail_flag == 1:   
         with open(filename, "w") as f:
