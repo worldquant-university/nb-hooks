@@ -1,3 +1,5 @@
+[![Tests](https://github.com/worldquant-university/nb-hooks/workflows/Tests/badge.svg)](https://github.com/worldquant-university/nb-hooks/actions)
+
 # Notebook Hooks
 
 Some hooks the staff at WorldQuant University use for keeping our curriculum tidy and consistent.
