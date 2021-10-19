@@ -25,6 +25,9 @@ def clean_sql_string(source: str) -> str:
 
 
 def clean_sql_cells(filename: str) -> int:
+    """
+    Takes notebook filename. Reads in file, cleans all cells that begin with `"%%sql"`.
+    """
     nb = nbformat.read(filename, as_version=4)
     cells = nb["cells"]
     fail_flag = 0
