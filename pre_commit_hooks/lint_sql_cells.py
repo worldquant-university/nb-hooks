@@ -18,7 +18,7 @@ def clean_sql_string(source: str) -> str:
     )
     if source[-11:] == " -- REMOVE}":
         source = source.replace(" -- REMOVE}", "\n-- REMOVE}")
-    source = "%%sql\n\n" + source
+    source = ("%%sql\n" + source).replace("\n\n", "\n")
     return source
 
 
