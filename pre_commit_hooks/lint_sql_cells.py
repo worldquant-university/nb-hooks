@@ -6,6 +6,9 @@ import sqlparse
 
 
 def clean_sql_string(source: str) -> str:
+    """
+    Takes string from notebook cell source. Parses and lints string.
+    """
     source = source.strip("%%sql").strip("\n")
     source = sqlparse.format(
         source,
