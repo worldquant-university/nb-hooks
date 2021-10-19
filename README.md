@@ -1,6 +1,6 @@
 # Notebook Hooks
 
-Some hooks the staff at WorldQuant University use for keeping tidy and consistent.
+Some hooks the staff at WorldQuant University use for keeping our curriculum tidy and consistent.
 
 ## Using nb-hooks with pre-commit
 
