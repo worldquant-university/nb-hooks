@@ -5,7 +5,8 @@ from typing import Optional, Sequence
 
 def remove_empty_last_cells(filename: str) -> int:
     """
-    Reads notebook from filename. If there are blank cells at the end of the notebook, removes them, overwrites file, and returns 1. Otherwise, returns 0. 
+    Reads notebook from filename. If there are blank cells at the end of the notebook, 
+    removes them, overwrites file, and returns 1. Otherwise, returns 0. 
     """
     nb = nbformat.read(filename, as_version=4)
 
