@@ -1,5 +1,5 @@
-from os import remove
 import pytest
+import nbformat
 
 from pre_commit_hooks.remove_last_blanks import remove_empty_last_cells
 from pre_commit_hooks.remove_last_blanks import main
@@ -20,15 +20,15 @@ def create_nb_fixture(add_blanks=False):
 def tmpfiles(tmpdir):
     file_path = tmpdir.join("correct.ipynb")
     with open(file_path, "w") as f:
-        nbformat.write(create_nb(add_blanks=False), f)
+        nbformat.write(create_nb_fixture(add_blanks=False), f)
     
     file_path = tmpdir.join("incorrrect.ipynb")
     with open(file_path, "w") as f:
-        nbformat.write(create_nb(add_blanks=True), f)
+        nbformat.write(create_nb_fixture(add_blanks=True), f)
 
     yield tmpdir
 
-def remove_empty_last_cells(tmpfiles):
+def test_remove_empty_last_cells(tmpfiles):
     remove_empty_last_cells(tmpfiles.join("correct.ipynb"))
     remove_empty_last_cells(tmpfiles.join("incorrrect.ipynb"))
 
