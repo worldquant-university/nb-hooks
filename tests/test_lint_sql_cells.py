@@ -1,8 +1,7 @@
-import pytest
 import nbformat
-import sqlparse
+import pytest
 
-from pre_commit_hooks.lint_sql_cells import clean_sql_string
+from pre_commit_hooks.lint_sql_cells import clean_sql_cells, clean_sql_string
 
 bad_sql_string = """%%sql
 -- REMOVE{
@@ -16,6 +15,38 @@ FROM sqlite_schema
 WHERE TYPE = "table"
 -- REMOVE}"""
 
+
+@pytest.fixture
+def tmpfiles(tmpdir):
+    # Create correct file
+    good_filename = tmpdir.join("good_sql.ipynb")
+    good_nb = nbformat.v4.new_notebook()
+    good_nb["cells"] = [nbformat.v4.new_code_cell(source=good_sql_string)]
+    with open(good_filename, "w") as f:
+        nbformat.write(good_nb, f)
+
+    # Create incorrect file
+    bad_filename = tmpdir.join("bad_sql.ipynb")
+    bad_nb = nbformat.v4.new_notebook()
+    bad_nb["cells"] = [nbformat.v4.new_code_cell(source=bad_sql_string)]
+    with open(bad_filename, "w") as f:
+        nbformat.write(bad_nb, f)
+    yield tmpdir
+
+
 def test_clean_sql_string():
     linted_sql_string = clean_sql_string(bad_sql_string)
     assert linted_sql_string == good_sql_string
+
+
+def test_clean_sql_cells(tmpfiles):
+    clean_sql_cells(tmpfiles.join("good_sql.ipynb"))
+    clean_sql_cells(tmpfiles.join("bad_sql.ipynb"))
+
+    good_nb = nbformat.read(tmpfiles.join("good_sql.ipynb"), as_version=4)
+    corrected_nb = nbformat.read(tmpfiles.join("bad_sql.ipynb"), as_version=4)
+
+    good_source = [c["source"] for c in good_nb["cells"]]
+    corrected_source = [c["source"] for c in corrected_nb["cells"]]
+
+    assert all(gs == cs for gs, cs in zip(good_source, corrected_source))
