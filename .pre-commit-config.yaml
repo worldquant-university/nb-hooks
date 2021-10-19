@@ -23,4 +23,4 @@ repos:
   rev: 3.9.2
   hooks:
   - id: flake8
-    args: [--exclude=*.ipynb]
+    args: [--exclude=*.ipynb, --ignore=E501]
