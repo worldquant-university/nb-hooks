@@ -9,6 +9,8 @@ def create_nb_fixture(add_blanks=False):
     cells = [
         nbformat.v4.new_markdown_cell(source="Hello!"),
         nbformat.v4.new_code_cell(source="1+1"),
+        nbformat.v4.new_markdown_cell(source="        Hello!"),
+        nbformat.v4.new_code_cell(source="\n\n\n1+1\n\n"),
     ]
     if add_blanks:
         cells.append(nbformat.v4.new_markdown_cell(source=""))
