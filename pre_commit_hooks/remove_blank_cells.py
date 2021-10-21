@@ -4,7 +4,7 @@ from typing import Optional, Sequence
 import nbformat
 
 
-def remove_empty_last_cells(filename: str) -> int:
+def remove_blank_cells(filename: str) -> int:
     """
     Reads notebook from filename. If there are blank cells at the
     end of the notebook, removes them, overwrites file, and returns 1.
@@ -32,7 +32,7 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
     args = parser.parse_args(argv)
 
     for filename in args.filenames:
-        remove_empty_last_cells(filename)
+        remove_blank_cells(filename)
     return 0
 
 

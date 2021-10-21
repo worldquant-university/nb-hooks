@@ -1,6 +1,6 @@
-- id: remove-last-blanks
+- id: remove-blank-cells
   name: Remove blank cells from notebook end
-  entry: remove-last-blanks
+  entry: remove-blank-cells
   language: python
   files: \.ipynb$
 - id: lint-sql-cells

@@ -12,13 +12,13 @@ Add this to your `.pre-commit-config.yaml`
 -  repo: https://github.com/pre-commit/pre-commit-hooks
    rev: main
    hooks:
-   - id: remove-last-blanks
+   - id: remove-blank-cells
    - id: lint-sql-cells
 ```
 
 ## Hooks Available
 
-### `remove-last-blanks`
+### `remove-blank-cells`
 
 Removes empty cells from the end of a notebook.
 
