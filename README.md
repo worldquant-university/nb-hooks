@@ -14,14 +14,19 @@ Add this to your `.pre-commit-config.yaml`
    hooks:
    - id: remove-blank-cells
    - id: lint-sql-cells
+   - id: add-colophon
 ```
 
 ## Hooks Available
 
 ### `remove-blank-cells`
 
-Removes empty cells from the end of a notebook.
+Removes empty cells from notebook.
 
 ### `lint-sql-cells`
 
 Lints all code cells that begin with `%%sql` (uses [`sqlparse`](https://github.com/andialbrecht/sqlparse)).
+
+### `add-colophon`
+
+Adds or corrects copyright cell at end of notebook.

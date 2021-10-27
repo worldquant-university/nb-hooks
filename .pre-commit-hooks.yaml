@@ -1,10 +1,15 @@
 - id: remove-blank-cells
-  name: Remove blank cells from notebook end
+  name: Remove blank cells from notebook
   entry: remove-blank-cells
   language: python
   files: \.ipynb$
 - id: lint-sql-cells
   name: Lint cells with SQL
   entry: lint-sql-cells
+  language: python
+  files: \.ipynb$
+- id: add-colophon
+  name: Append copyright cell to notebook
+  entry: add-colophon
   language: python
   files: \.ipynb$
