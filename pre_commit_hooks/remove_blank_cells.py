@@ -17,14 +17,14 @@ def remove_blank_cells(filename: str) -> int:
 
     # Get index positions of blank cells
     for idx, c in enumerate(cells):
-        if re.match(r"^\s*$", c["source"]):
+        if c["source"] == [] or re.match(r"^\s*$", c["source"]):
             blank_cell_idx.append(idx)
-
     if not blank_cell_idx:
         return 0
     else:
         # Create new cell list without blank cells
         cells = [c for idx, c in enumerate(cells) if idx not in blank_cell_idx]
+        nb["cells"] = cells
         with open(filename, "w") as f:
             nbformat.write(nb, f)
         return 1
