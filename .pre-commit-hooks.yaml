@@ -13,3 +13,8 @@
   entry: add-colophon
   language: python
   files: \.ipynb$
+- id: add-task-numbers
+  name: Add / correct task numbering
+  entry: add-task-numbers
+  language: python
+  files: \.ipynb$

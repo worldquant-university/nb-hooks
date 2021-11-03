@@ -55,10 +55,6 @@ def test_add_colophon(tmpfiles):
     compare_source = [c["source"] for c in compare["cells"]]
 
     nbs = (nbformat.read(tmpfiles.join(f), as_version=4) for f in files)
-    print("COMPARE")
-    print(compare_source)
     for nb in nbs:
         nb_source = [c["source"] for c in nb["cells"]]
-        print("OTHER")
-        print(nb_source)
         assert all([a == b for a, b in zip(compare_source, nb_source)])
