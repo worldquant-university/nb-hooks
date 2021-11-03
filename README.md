@@ -15,6 +15,7 @@ Add this to your `.pre-commit-config.yaml`
    - id: remove-blank-cells
    - id: lint-sql-cells
    - id: add-colophon
+   - id: add-task-numbers
 ```
 
 ## Hooks Available
@@ -30,3 +31,8 @@ Lints all code cells that begin with `%%sql` (uses [`sqlparse`](https://github.c
 ### `add-colophon`
 
 Adds or corrects copyright cell at end of notebook.
+
+### `add-task-numbers`
+
+For notebooks that have tasks in markdown cells (denoted by `**Task:**`),
+adds or corrects task numbering.
