@@ -2,16 +2,7 @@ import nbformat
 import pytest
 
 from pre_commit_hooks.add_task_numbers import add_task_numbers
-
-
-def save_nb(nb, filename):
-    with open(filename, "w") as f:
-        nbformat.write(nb, f)
-
-
-def get_source_from_file(filename):
-    nb = nbformat.read(filename, as_version=4)
-    return [c["source"] for c in nb["cells"]]
+from tests.conftest import get_source_from_file, save_nb
 
 
 # Three fixtures
