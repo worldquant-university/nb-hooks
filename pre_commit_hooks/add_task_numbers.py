@@ -10,7 +10,7 @@ def add_task_numbers(filename: str) -> int:
     # Get notebook number or skip NB if none
     nb_basename = os.path.basename(filename)
     try:
-        nb_num = int(nb_basename.split("-")[0])
+        nb_num = ".".join(nb_basename.split("-")[0][1:])
     except ValueError:
         return 0
 
