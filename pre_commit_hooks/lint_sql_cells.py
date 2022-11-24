@@ -1,3 +1,4 @@
+import re
 from argparse import ArgumentParser
 from typing import Optional, Sequence
 
@@ -9,19 +10,25 @@ def clean_sql_string(source: str) -> str:
     """
     Takes string from notebook cell source. Parses and lints string.
     """
-    source = source.strip("%%sql").strip("\n")
-    source = sqlparse.format(
-        source,
+    # Remove first line
+    source_split = source.splitlines()
+    header = source_split[0]
+    body = source_split[1:]
+    new_body = sqlparse.format(
+        "\n".join(body),
         reindent=True,
         use_space_around_operators=True,
         keyword_case="upper",
         reindent_aligned=False,
         identifier_case="lower",
     )
-    if source[-11:] == " -- REMOVE}":
-        source = source.replace(" -- REMOVE}", "\n-- REMOVE}")
-    source = ("%%sql\n" + source).replace("\n\n", "\n")
-    return source
+
+    new_body = new_body.replace("-- REMOVE{\n", "-- REMOVE{").replace(
+        " -- REMOVE}", "\n-- REMOVE}"
+    )
+
+    new_source = header + "\n\n\n" + new_body
+    return new_source
 
 
 def clean_sql_cells(filename: str) -> int:
@@ -31,8 +38,10 @@ def clean_sql_cells(filename: str) -> int:
     nb = nbformat.read(filename, as_version=4)
     cells = nb["cells"]
     fail_flag = 0
+
+    regex = re.compile(r"%%sql|%%bigquery")
     for cell in cells:
-        if (cell["cell_type"] == "code") and ("%%sql" in cell["source"]):
+        if (cell["cell_type"] == "code") and regex.match(cell["source"]):
             clean_code = clean_sql_string(cell["source"])
             if cell["source"] != clean_code:
                 cell["source"] = clean_sql_string(cell["source"]).replace("\n\n", "\n")
