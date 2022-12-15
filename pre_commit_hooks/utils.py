@@ -9,7 +9,11 @@ publication of this material is strictly prohibited.
 piracy_warning = """
 <div class="alert alert-info" role="alert">
   <p>
-    This lesson is part of the <b>DS Lab core curriculum</b>. For that reason, this notebook can only be used on your WQU virtual machine
+    <b>Usage Guidelines</b>
+  </p>
+
+  <p>
+    This lesson is part of the <b>DS Lab core curriculum</b>. For that reason, this notebook can only be used on your WQU virtual machine.
   </p>
 
   <p>
@@ -24,3 +28,5 @@ piracy_warning = """
   </p>
 </div>
 """
+
+canary_text = "<span style='color: transparent; font-size:1%'>WQU WorldQuant University Applied Data Science Lab QQQQ</span>"

@@ -28,3 +28,8 @@
   entry: fix-title-headers
   language: python
   files: \.ipynb$
+- id: add-canary
+  name: Add invisible text to MD cell
+  entry: add-canary
+  language: python
+  files: \.ipynb$
