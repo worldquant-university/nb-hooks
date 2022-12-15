@@ -28,7 +28,7 @@ def add_colophon(filename: str) -> int:
 
 
 def main(argv: Optional[Sequence[str]] = None) -> int:
-    parser = ArgumentParser("Lint notebook cells starting with '%%sql'")
+    parser = ArgumentParser("Add copyright colophon to end of notebook.")
     parser.add_argument("filenames", nargs="*", help="Filenames for format")
     args = parser.parse_args(argv)
 
