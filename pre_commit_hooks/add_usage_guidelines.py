@@ -2,6 +2,7 @@ from argparse import ArgumentParser
 from typing import Optional, Sequence
 
 import nbformat
+from thefuzz import fuzz
 
 from pre_commit_hooks.utils import piracy_warning
 
@@ -10,12 +11,20 @@ def add_guidelines(filename: str) -> int:
     nb = nbformat.read(filename, as_version=4)
     cells = nb["cells"]
 
-    # Exact match in last cell
-    if cells[0]["source"] == piracy_warning:
-        return 0
-    # Add Markdown cell with text
+    if "011-tabular-and-tidy-data" in filename:
+        idx = 1
     else:
-        cells.insert(0, nbformat.v4.new_markdown_cell(source=piracy_warning))
+        idx = 0
+
+    # Exact match in first cell: Pass
+    if cells[idx]["source"] == piracy_warning:
+        return 0
+    # Fuzz match: Edit cell
+    elif 75 < fuzz.ratio(cells[idx]["source"], piracy_warning) < 100:
+        cells[idx]["source"] = piracy_warning
+    # No match (i.e. cell is missing entirely), prepend
+    else:
+        cells.insert(idx, nbformat.v4.new_markdown_cell(source=piracy_warning))
 
     with open(filename, "w") as f:
         nbformat.write(nb, f)
