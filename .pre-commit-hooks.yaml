@@ -18,6 +18,11 @@
   entry: add-task-numbers
   language: python
   files: \.ipynb$
+- id: add-usage-guidelines
+  name: Add reuse guidelines
+  entry: add-usage-guidelines
+  language: python
+  files: \.ipynb$
 - id: fix-title-headers
   name: Fix notebook titles and H1 headers
   entry: fix-title-headers

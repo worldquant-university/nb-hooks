@@ -14,22 +14,22 @@ def read_nb(filename: str) -> NotebookNode:
 def check_for_title(filename: str) -> int:
     nb = read_nb(filename)
     nb_basename = os.path.basename(filename)
-    first_cell = nb["cells"][0]
+    second_cell = nb["cells"][1]
 
     # Check that first cell is Markdown
-    if first_cell["cell_type"] != "markdown":
+    if second_cell["cell_type"] != "markdown":
         print(f"{nb_basename}: Missing title.")
         return 1
 
     # Check that first cell starts w/ proper title formatting
-    if first_cell["source"][:24] != '<font size="+3"><strong>':
+    if second_cell["source"][:24] != '<font size="+3"><strong>':
         print(
             f'{nb_basename}: Missing title formatting tags (`<font size="+3"><strong>`).'
         )
         return 1
 
     # Check that first cell only contains title, check by tags
-    if first_cell["source"][-16:] != "</strong></font>":
+    if second_cell["source"][-16:] != "</strong></font>":
         print(f"{nb_basename}: Additional text in title cell.")
         return 1
 
