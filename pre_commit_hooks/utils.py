@@ -19,12 +19,12 @@ piracy_warning = """
   <p>
     This means:
     <ul>
-      <li><span style="color: red">ⓧ</span> No downloading this file.</li>
-      <li><span style="color: red">ⓧ</span> No re-sharing of this file with friends or colleagues.</li>
-      <li><span style="color: red">ⓧ</span> No downloading the embedded video files.</li>
-      <li><span style="color: red">ⓧ</span> No re-sharing embedded video files with friends or colleagues.</li>
-      <li><span style="color: red">ⓧ</span> No adding this file to public or private repositories.</li>
-      <li><span style="color: red">ⓧ</span> No uploading this file (or screenshots of it) to other websites, including websites for study resources.</li>
+      <li><span style="color: red">ⓧ</span> No downloading this notebook.</li>
+      <li><span style="color: red">ⓧ</span> No re-sharing of this notebook with friends or colleagues.</li>
+      <li><span style="color: red">ⓧ</span> No downloading the embedded videos in this notebook.</li>
+      <li><span style="color: red">ⓧ</span> No re-sharing embedded videos with friends or colleagues.</li>
+      <li><span style="color: red">ⓧ</span> No adding this notebook to public or private repositories.</li>
+      <li><span style="color: red">ⓧ</span> No uploading this notebook (or screenshots of it) to other websites, including websites for study resources.</li>
     </ul>
 
   </p>
