@@ -15,7 +15,7 @@ def add_colophon(filename: str) -> int:
     if cells[-1]["source"] == copyright_text:
         return 0
     # Fuzzy match in last cell, replace text
-    elif 50 < fuzz.ratio(cells[-1]["source"], copyright_text) < 100:
+    elif 75 < fuzz.ratio(cells[-1]["source"], copyright_text) < 100:
         cells[-1]["source"] = copyright_text
     # Add Markdown cell with text
     else:

@@ -20,7 +20,7 @@ def add_guidelines(filename: str) -> int:
     if cells[idx]["source"] == piracy_warning:
         return 0
     # Fuzz match: Edit cell
-    elif 75 < fuzz.ratio(cells[idx]["source"], piracy_warning) < 100:
+    elif 50 < fuzz.ratio(cells[idx]["source"], piracy_warning) < 100:
         cells[idx]["source"] = piracy_warning
     # No match (i.e. cell is missing entirely), prepend
     else:
