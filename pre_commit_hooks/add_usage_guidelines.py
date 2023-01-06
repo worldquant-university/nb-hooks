@@ -22,9 +22,13 @@ def add_guidelines(filename: str) -> int:
     # Fuzz match: Edit cell
     elif 25 < fuzz.ratio(cells[idx]["source"], piracy_warning) < 100:
         cells[idx]["source"] = piracy_warning
+        cells[idx]["metadata"]["editable"] = False
+        cells[idx]["metadata"]["deletable"] = False
     # No match (i.e. cell is missing entirely), prepend
     else:
         cells.insert(idx, nbformat.v4.new_markdown_cell(source=piracy_warning))
+        cells[idx]["metadata"]["editable"] = False
+        cells[idx]["metadata"]["deletable"] = False
 
     with open(filename, "w") as f:
         nbformat.write(nb, f)

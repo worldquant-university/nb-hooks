@@ -9,7 +9,7 @@ publication of this material is strictly prohibited.
 piracy_warning = """
 <div class="alert alert-info" role="alert">
   <p>
-    <b>Usage Guidelines</b>
+    <center><b>Usage Guidelines</b></center>
   </p>
 
   <p>

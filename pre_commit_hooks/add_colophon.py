@@ -17,9 +17,13 @@ def add_colophon(filename: str) -> int:
     # Fuzzy match in last cell, replace text
     elif 75 < fuzz.ratio(cells[-1]["source"], copyright_text) < 100:
         cells[-1]["source"] = copyright_text
+        cells[-1]["metadata"]["editable"] = False
+        cells[-1]["metadata"]["deletable"] = False
     # Add Markdown cell with text
     else:
         cells.append(nbformat.v4.new_markdown_cell(source=copyright_text))
+        cells[-1]["metadata"]["editable"] = False
+        cells[-1]["metadata"]["deletable"] = False
 
     with open(filename, "w") as f:
         nbformat.write(nb, f)
