@@ -10,7 +10,7 @@ def remove_blank_cells(filename: str) -> int:
     Reads notebook from filename. If there are blank cells in notebook,
     removes them, overwrites file, and returns 1. Otherwise, returns 0.
     """
-    nb = nbformat.read(filename, as_version=nbformat.NO_CONVERT)
+    nb = nbformat.read(filename, as_version=4)
 
     cells = nb["cells"]
     blank_cell_idx = list()

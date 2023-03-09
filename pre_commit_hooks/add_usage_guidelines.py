@@ -8,7 +8,7 @@ from pre_commit_hooks.utils import piracy_warning
 
 
 def add_guidelines(filename: str) -> int:
-    nb = nbformat.read(filename, as_version=nbformat.NO_CONVERT)
+    nb = nbformat.read(filename, as_version=4)
     cells = nb["cells"]
 
     if "011-tabular-and-tidy-data" in filename:

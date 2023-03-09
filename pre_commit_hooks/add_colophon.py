@@ -8,7 +8,7 @@ from pre_commit_hooks.utils import copyright_text
 
 
 def add_colophon(filename: str) -> int:
-    nb = nbformat.read(filename, as_version=nbformat.NO_CONVERT)
+    nb = nbformat.read(filename, as_version=4)
     cells = nb["cells"]
 
     # Exact match in last cell

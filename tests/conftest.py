@@ -7,5 +7,5 @@ def save_nb(nb, filename):
 
 
 def get_source_from_file(filename):
-    nb = nbformat.read(filename, as_version=nbformat.NO_CONVERT)
+    nb = nbformat.read(filename, as_version=4)
     return [c["source"] for c in nb["cells"]]

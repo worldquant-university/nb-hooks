@@ -36,12 +36,8 @@ def test_remove_blank_cells(tmpfiles):
     remove_blank_cells(tmpfiles.join("correct.ipynb"))
     remove_blank_cells(tmpfiles.join("incorrrect.ipynb"))
 
-    correct = nbformat.read(
-        tmpfiles.join("correct.ipynb"), as_version=nbformat.NO_CONVERT
-    )
-    corrected = nbformat.read(
-        tmpfiles.join("incorrrect.ipynb"), as_version=nbformat.NO_CONVERT
-    )
+    correct = nbformat.read(tmpfiles.join("correct.ipynb"), as_version=4)
+    corrected = nbformat.read(tmpfiles.join("incorrrect.ipynb"), as_version=4)
 
     correct_source = [c["source"] for c in correct["cells"]]
     corrected_source = [c["source"] for c in corrected["cells"]]

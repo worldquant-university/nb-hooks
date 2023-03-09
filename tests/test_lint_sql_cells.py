@@ -63,12 +63,8 @@ def test_clean_sql_string():
 def test_clean_sql_cells(tmpfiles):
     clean_sql_cells(tmpfiles.join("bad_sql.ipynb"))
 
-    good_nb = nbformat.read(
-        tmpfiles.join("good_sql.ipynb"), as_version=nbformat.NO_CONVERT
-    )
-    corrected_nb = nbformat.read(
-        tmpfiles.join("bad_sql.ipynb"), as_version=nbformat.NO_CONVERT
-    )
+    good_nb = nbformat.read(tmpfiles.join("good_sql.ipynb"), as_version=4)
+    corrected_nb = nbformat.read(tmpfiles.join("bad_sql.ipynb"), as_version=4)
 
     good_source = [c["source"] for c in good_nb["cells"]]
     corrected_source = [c["source"] for c in corrected_nb["cells"]]
