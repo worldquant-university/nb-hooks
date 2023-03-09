@@ -7,7 +7,7 @@ from nbformat.notebooknode import NotebookNode
 
 
 def read_nb(filename: str) -> NotebookNode:
-    nb = nbformat.read(filename, as_version=4)
+    nb = nbformat.read(filename, as_version=nbformat.NO_CONVERT)
     return nb
 
 

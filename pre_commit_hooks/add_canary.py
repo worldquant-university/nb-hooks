@@ -9,7 +9,7 @@ from pre_commit_hooks.utils import canary_text
 
 
 def read_nb(filename: str) -> NotebookNode:
-    nb = nbformat.read(filename, as_version=4)
+    nb = nbformat.read(filename, as_version=nbformat.NO_CONVERT)
     return nb
 
 

@@ -54,7 +54,9 @@ def test_add_colophon(tmpfiles):
     compare["cells"].append(nbformat.v4.new_markdown_cell(source=copyright_text))
     compare_source = [c["source"] for c in compare["cells"]]
 
-    nbs = (nbformat.read(tmpfiles.join(f), as_version=4) for f in files)
+    nbs = (
+        nbformat.read(tmpfiles.join(f), as_version=nbformat.NO_CONVERT) for f in files
+    )
     for nb in nbs:
         nb_source = [c["source"] for c in nb["cells"]]
         assert all([a == b for a, b in zip(compare_source, nb_source)])

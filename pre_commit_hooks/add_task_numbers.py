@@ -15,7 +15,7 @@ def add_task_numbers(filename: str) -> int:
         return 0
 
     # Read in notebook
-    nb = nbformat.read(filename, as_version=4)
+    nb = nbformat.read(filename, as_version=nbformat.NO_CONVERT)
 
     fail_flag = 0
     task_num = 1
