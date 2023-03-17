@@ -33,3 +33,7 @@
   entry: add-canary
   language: python
   files: \.ipynb$
+- id: fix-encoding
+  name: Encode cp1252 characters as utf-8
+  entry: fix-encoding
+  language: python
