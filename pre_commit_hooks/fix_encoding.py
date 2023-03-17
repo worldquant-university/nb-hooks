@@ -14,7 +14,6 @@ def fix_encoding(filename: str) -> int:
             f.write(doc)
     except:  # noQA E722
         raise Exception(f"Can't read {filename}. Not encoded in utf-8 or cp1252.")
-
     return 1
 
 
