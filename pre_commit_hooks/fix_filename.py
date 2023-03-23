@@ -22,8 +22,8 @@ def fix_filename(filename):
 
     if not head_passing:
         print(
-            "Course note filepaths must be:",
-            "'python-materials/<course-name>/module-<x>/lesson-<x>/course_name_module_<x>_lesson_<x>.ipynb'",
+            f"Naming error:  {filename}.\n" "Doesn't match:",
+            "python-materials/<course-name>/module-<x>/lesson-<x>/course_name_module_<x>_lesson_<x>.ipynb",
         )
         return 1
 
@@ -50,8 +50,8 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
     args = parser.parse_args(argv)
 
     for filename in args.filenames:
-        fix_filename(filename)
-    return 0
+        output = fix_filename(filename)
+    return output
 
 
 if __name__ == "__main__":

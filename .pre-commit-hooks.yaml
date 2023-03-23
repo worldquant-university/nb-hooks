@@ -38,6 +38,6 @@
   entry: fix-encoding
   language: python
 - id: fix-filename
-  name: Make sure IPYNB naming conforms to curriculur structure
+  name: Fix ipynb filenames
   entry: fix-filename
   language: python
