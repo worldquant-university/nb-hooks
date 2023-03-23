@@ -37,3 +37,7 @@
   name: Encode cp1252 characters as utf-8
   entry: fix-encoding
   language: python
+- id: fix-filename
+  name: Make sure IPYNB naming conforms to curriculur structure
+  entry: fix-filename
+  language: python
