@@ -5,7 +5,7 @@ from typing import Optional, Sequence
 
 def fix_filename(filename):
     if filename[-6:] != ".ipynb":
-        return 1
+        return 0
     head, tail = os.path.split(filename)
     head_dirs = head.split("/")
 
