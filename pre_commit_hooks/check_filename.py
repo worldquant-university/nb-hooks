@@ -12,30 +12,26 @@ def check_filename(filename):
     try:
         _, course, module, lesson = head.split("/")
     except ValueError:
+        print(f"Filepath incorrect for: {filename}.")
         print(
-            f"Filepath incorrect for: {filename}.\n",
             "Doesn't match pattern :",
-            "python-materials/<course-name>/module-<x>/lesson-<y>/course_name_module_<x>_lesson_<y>.ipynb\n",
-            "Make sure notebook is in correct directory.\n\n",
+            "python-materials/<course-name>/module-<x>/lesson-<y>/course_name_module_<x>_lesson_<y>.ipynb",
         )
+        print("Make sure notebook is in correct directory.\n\n")
         return 1
 
     # Catch notebooks with wrong name
+    course_abbr = "_".join(course.split("-")[:2])
+
     correct_tail = (
-        course.replace("-", "_")
-        + "_module_"
-        + module[-1]
-        + "_lesson_"
-        + lesson[-1]
-        + ".ipynb"
+        course_abbr + "_module_" + module[-1] + "_lesson_" + lesson[-1] + ".ipynb"
     )
 
     if tail != correct_tail:
-        print(
-            f"Filename incorrect for: {tail}.\n",
-            f"Doesn't match pattern : {correct_tail}.\n",
-            "Rename and recommit.\n\n",
-        )
+        print(f"Filename incorrect for: {tail}.")
+        print(f"Doesn't match pattern : {correct_tail}.")
+        print("Rename and recommit.\n\n")
+        return 1
 
     return 0
 
