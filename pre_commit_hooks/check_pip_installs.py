@@ -8,7 +8,7 @@ def check_pip_installs(filename):
 
     if "pip install" in text:
         print(f"pip install found in: {filename}")
-        print("Remove. If you need a new library installed, ask Nicholas.")
+        print("Remove. If you need a new library installed, ask Nicholas.\n")
         return 1
 
     return 0

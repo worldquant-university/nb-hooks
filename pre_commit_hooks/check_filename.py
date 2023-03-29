@@ -17,7 +17,7 @@ def check_filename(filename):
             "Doesn't match pattern :",
             "python-materials/<course-name>/module-<x>/lesson-<y>/course_name_module_<x>_lesson_<y>.ipynb",
         )
-        print("Make sure notebook is in correct directory.\n\n")
+        print("Make sure notebook is in correct directory.\n")
         return 1
 
     # Catch notebooks with wrong name
@@ -30,7 +30,7 @@ def check_filename(filename):
     if tail != correct_tail:
         print(f"Filename incorrect for: {tail}.")
         print(f"Doesn't match pattern : {correct_tail}.")
-        print("Rename and recommit.\n\n")
+        print("Rename and recommit.\n")
         return 1
 
     return 0
