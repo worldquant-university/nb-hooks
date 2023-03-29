@@ -47,7 +47,7 @@
   language: python
   files: \.ipynb$
 - id: fix-smartquotes
-  name: Look for pip installs
+  name: Replace smartquotes
   entry: fix-smartquotes
   language: python
   files: \.ipynb$

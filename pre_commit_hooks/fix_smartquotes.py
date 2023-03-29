@@ -16,6 +16,8 @@ def fix_smartquotes(filename):
             fail_flag += 1
 
     if fail_flag:
+        with open(filename, "w") as f:
+            f.write(text)
         return 1
     else:
         return 0
