@@ -37,7 +37,7 @@
   name: Encode cp1252 characters as utf-8
   entry: fix-encoding
   language: python
-- id: fix-filename
+- id: check-filename
   name: Fix ipynb filenames
-  entry: fix-filename
+  entry: check-filename
   language: python
