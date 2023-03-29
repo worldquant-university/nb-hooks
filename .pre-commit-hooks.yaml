@@ -44,3 +44,10 @@
 - id: check-pip-installs
   name: Look for pip installs
   entry: check-pip-installs
+  language: python
+  files: \.ipynb$
+- id: fix-smartquotes
+  name: Look for pip installs
+  entry: fix-smartquotes
+  language: python
+  files: \.ipynb$

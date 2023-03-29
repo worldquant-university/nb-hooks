@@ -2,16 +2,23 @@ from argparse import ArgumentParser
 from typing import Optional, Sequence
 
 
-def check_pip_installs(filename):
+def fix_smartquotes(filename):
+    sm_dict = {"“": '"', "”": '"', "‘": "'", "’": "'"}
+
     with open(filename, "r") as f:
         text = f.read()
 
-    if "pip install" in text:
-        print(f"pip install found in: {filename}")
-        print("Remove. If you need a new library installed, ask Nicholas.")
-        return 1
+    fail_flag = 0
 
-    return 0
+    for key, val in sm_dict.items():
+        if key in text:
+            text = text.replace(key, val)
+            fail_flag += 1
+
+    if fail_flag:
+        return 1
+    else:
+        return 0
 
 
 def main(argv: Optional[Sequence[str]] = None) -> int:
@@ -19,7 +26,7 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
     parser.add_argument("filenames", nargs="*", help="Filenames for format")
     args = parser.parse_args(argv)
 
-    flags = [check_pip_installs(filename) for filename in args.filenames]
+    flags = [fix_smartquotes(filename) for filename in args.filenames]
 
     if sum(flags):
         return 1
