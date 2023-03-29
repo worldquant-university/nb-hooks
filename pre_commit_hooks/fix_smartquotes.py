@@ -3,7 +3,7 @@ from typing import Optional, Sequence
 
 
 def fix_smartquotes(filename):
-    sm_dict = {"“": '"', "”": '"', "‘": "'", "’": "'"}
+    sm_dict = {"“": r"\"", "”": r"\"", "‘": "'", "’": "'"}
 
     with open(filename, "r") as f:
         text = f.read()
