@@ -51,3 +51,7 @@
   entry: fix-smartquotes
   language: python
   files: \.ipynb$
+- id: sort-spelling-dict
+  name: Sort dictionary
+  language: python
+  files: \custom-dictionary.txt$
