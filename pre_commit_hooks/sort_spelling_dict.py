@@ -5,12 +5,14 @@ from typing import Optional, Sequence
 def sort_spelling_dict(filename):
     with open(filename, "r") as f:
         terms_old = f.readlines()
-        terms_new = sorted(list(set(terms_old)))
 
-        if terms_old != terms_new:
+    terms_new = sorted(list(set(terms_old)))
+
+    if terms_old != terms_new:
+        with open(filename, "w") as f:
             f.writelines(terms_new)
-            print("Sorted dictionary.")
-            return 1
+        print("Sorted dictionary.")
+        return 1
 
     return 0
 

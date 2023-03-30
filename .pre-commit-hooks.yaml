@@ -53,5 +53,6 @@
   files: \.ipynb$
 - id: sort-spelling-dict
   name: Sort dictionary
+  entry: sort-spelling-dict
   language: python
-  files: \custom-dictionary.txt$
+  files: custom-dictionary\.txt$
