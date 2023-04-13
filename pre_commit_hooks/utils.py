@@ -31,4 +31,4 @@ piracy_warning = """
 </div>
 """
 
-canary_text = "<span style='color: transparent; font-size:1%'>WQU WorldQuant University Applied Data Science Lab QQQQ</span>"
+canary_text = "<span style='color: transparent; font-size:1%'>All rights reserved WQU WorldQuant University QQQQ</span>"
